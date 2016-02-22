@@ -47,6 +47,33 @@ passport.use(new passportLocal.Strategy(function(username, password, done) {
 
 }));
 
+create a student model
+var Student = sequelize.define('Student', {
+  email: {
+    type: Sequelize.STRING,
+    unique: true
+  },
+  password: Sequelize.STRING,
+  username: {
+    type: Sequelize.STRING,
+    unique: true
+  }
+});
+
+create an instructor model
+var Instructor = sequelize.define('Instructor', {
+  email: {
+    type: Sequelize.STRING,
+    unique: true
+  },
+  password: Sequelize.STRING,
+  username: {
+    type: Sequelize.STRING,
+    unique: true
+  }
+});
+
+
 //change the object used to authenticate to a smaller token, and protects the server from attacks
 passport.serializeUser(function(user, done) {
     done(null, user.id);
